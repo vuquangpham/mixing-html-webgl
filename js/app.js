@@ -15,10 +15,7 @@ export default class Sketch {
 
   init() {
     // initial variables
-    this.sizes = new Sizes(
-      this.container.offsetWidth,
-      this.container.offsetHeight
-    );
+    this.sizes = new Sizes(this);
 
     // instance
     this.renderer = new Renderer(null, this.sizes);
@@ -29,11 +26,19 @@ export default class Sketch {
     // create objects
     this.objects = new Objects(this);
 
-    // events
-    this.resize;
-
     // register events
     window.addEventListener("resize", this.resize.bind(this));
+  }
+
+  resize() {
+    // size
+    this.sizes.resize();
+
+    // camera
+    this.camera.resize();
+
+    // renderer
+    this.renderer.resize();
   }
 
   render(time) {

@@ -1,7 +1,12 @@
 export default class Sizes {
-  constructor(container) {
-    this.container = container;
+  constructor(experience) {
+    this.experience = experience;
+    this.container = this.experience.container;
 
+    // event
+    this.event = new EventEmitter();
+
+    // get the size
     this.setSize();
   }
 
