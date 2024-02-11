@@ -6,7 +6,7 @@ import Camera from "./camera";
 
 export default class Sketch {
   constructor(options) {
-    this.elapsedTime = 0;
+    this.clock = new THREE.Clock();
     this.container = options.container;
 
     this.init();
@@ -43,7 +43,10 @@ export default class Sketch {
 
   render(time) {
     // update elapsed time
-    this.elapsedTime = time / 1000;
+    const elapsedTime = this.clock.getElapsedTime();
+
+    // update the uniforms
+    this.objects.material.uniforms.uTime.value = elapsedTime;
 
     // update controls
     this.camera.updateControls();

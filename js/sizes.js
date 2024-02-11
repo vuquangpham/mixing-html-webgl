@@ -3,15 +3,12 @@ export default class Sizes {
     this.experience = experience;
     this.container = this.experience.container;
 
-    // event
-    this.event = new EventEmitter();
-
     // get the size
     this.setSize();
   }
 
   setSize() {
-    this.width = this.container.offsetHeight;
+    this.width = this.container.offsetWidth;
     this.height = this.container.offsetHeight;
   }
 

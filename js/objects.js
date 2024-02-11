@@ -13,14 +13,16 @@ export default class Objects {
   }
 
   init() {
-    const geometry = new THREE.BoxGeometry(1, 1, 1);
-    const material = new THREE.ShaderMaterial({
+    this.geometry = new THREE.BoxGeometry(1, 1, 1);
+    this.material = new THREE.ShaderMaterial({
       vertexShader,
       fragmentShader,
 
-      uniforms: {},
+      uniforms: {
+        uTime: { value: this.elapsedTime },
+      },
     });
-    const mesh = new THREE.Mesh(geometry, material);
+    const mesh = new THREE.Mesh(this.geometry, this.material);
     this.scene.add(mesh);
   }
 }
