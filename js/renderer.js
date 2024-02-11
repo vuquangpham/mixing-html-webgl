@@ -7,5 +7,7 @@ export default class Renderer {
       canvas: canvas ?? undefined,
     });
     this.instance.setSize(sizes.width, sizes.height);
+    this.instance.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    this.instance.setClearColor(0xeeeeee, 1);
   }
 }
