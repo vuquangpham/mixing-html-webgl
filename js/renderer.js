@@ -10,4 +10,9 @@ export default class Renderer {
     this.instance.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     this.instance.setClearColor(0xeeeeee, 1);
   }
+
+  resize() {
+    this.renderer.instance.setSize(this.width, this.height);
+    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  }
 }

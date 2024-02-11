@@ -34,4 +34,9 @@ export default class Camera {
     if (!this.controls) return;
     this.controls.update();
   }
+
+  resize() {
+    this.camera.instance.aspect = this.width / this.height;
+    this.camera.instance.updateProjectionMatrix();
+  }
 }

@@ -29,6 +29,9 @@ export default class Sketch {
     // create objects
     this.objects = new Objects(this);
 
+    // events
+    this.resize;
+
     // register events
     window.addEventListener("resize", this.resize.bind(this));
   }
@@ -45,19 +48,6 @@ export default class Sketch {
 
     // recall
     window.requestAnimationFrame(this.render.bind(this));
-  }
-
-  resize() {
-    this.sizes.width = this.container.offsetWidth;
-    this.sizes.height = this.container.offsetHeight;
-
-    // update renderer size
-    this.renderer.instance.setSize(this.width, this.height);
-    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-    // update camera
-    this.camera.instance.aspect = this.width / this.height;
-    this.camera.instance.updateProjectionMatrix();
   }
 }
 
