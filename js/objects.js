@@ -13,9 +13,10 @@ export default class Objects {
   }
 
   init() {
-    this.geometry = new THREE.PlaneGeometry(1, 1, 1, 1);
+    this.geometry = new THREE.PlaneGeometry(1, 1, 64, 64);
     this.material = new THREE.ShaderMaterial({
       side: THREE.DoubleSide,
+      wireframe: true,
 
       vertexShader,
       fragmentShader,
@@ -25,6 +26,7 @@ export default class Objects {
       },
     });
     const mesh = new THREE.Mesh(this.geometry, this.material);
+    mesh.rotation.x = -Math.PI * 0.5;
     this.scene.add(mesh);
   }
 }
