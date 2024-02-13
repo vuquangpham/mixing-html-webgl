@@ -1,5 +1,7 @@
 import * as THREE from "three";
 
+import GUI from "lil-gui";
+
 import vertexShader from "./shaders/vertex.glsl";
 import fragmentShader from "./shaders/fragment.glsl";
 
@@ -13,6 +15,9 @@ export default class Objects {
   }
 
   init() {
+    // debug
+    const gui = new GUI();
+
     this.geometry = new THREE.PlaneGeometry(1, 1, 64, 64);
     this.material = new THREE.ShaderMaterial({
       side: THREE.DoubleSide,
@@ -23,10 +28,14 @@ export default class Objects {
 
       uniforms: {
         uTime: { value: this.elapsedTime },
+        uFrequency: { value: 0.2 },
       },
     });
     const mesh = new THREE.Mesh(this.geometry, this.material);
     mesh.rotation.x = -Math.PI * 0.5;
     this.scene.add(mesh);
+
+    // add debug
+    gui.add(this.material.uniforms.uFrequency, "value").min(0).max(1).step(0.1);
   }
 }
