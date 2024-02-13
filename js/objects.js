@@ -36,6 +36,11 @@ export default class Objects {
     this.scene.add(mesh);
 
     // add debug
-    gui.add(this.material.uniforms.uFrequency, "value").min(0).max(1).step(0.1);
+    gui
+      .add(this.material.uniforms.uFrequency, "value")
+      .min(0)
+      .max(1)
+      .step(0.1)
+      .name("Frequency");
   }
 }
