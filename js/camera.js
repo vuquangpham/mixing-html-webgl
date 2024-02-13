@@ -4,10 +4,8 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 export default class Camera {
   constructor(experience) {
     this.experience = experience;
-    this.width = this.experience.sizes.width;
-    this.height = this.experience.sizes.height;
+    this.sizes = this.experience.sizes;
 
-    console.log(this.width, this.height);
     this.setCamera();
     this.setOrbitControls();
   }
@@ -15,7 +13,7 @@ export default class Camera {
   setCamera() {
     this.instance = new THREE.PerspectiveCamera(
       70,
-      this.width / this.height,
+      this.sizes.width / this.sizes.height,
       0.1,
       100
     );
@@ -36,7 +34,7 @@ export default class Camera {
   }
 
   resize() {
-    this.camera.instance.aspect = this.width / this.height;
-    this.camera.instance.updateProjectionMatrix();
+    this.instance.aspect = this.sizes.width / this.sizes.height;
+    this.instance.updateProjectionMatrix();
   }
 }

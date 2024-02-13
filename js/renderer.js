@@ -1,18 +1,19 @@
 import * as THREE from "three";
 
 export default class Renderer {
-  constructor(canvas, sizes) {
+  constructor(experience) {
+    this.experience = experience;
+    this.sizes = this.experience.sizes;
     this.instance = new THREE.WebGLRenderer({
       antialias: true,
-      canvas: canvas ?? undefined,
     });
-    this.instance.setSize(sizes.width, sizes.height);
+    this.instance.setSize(this.sizes.width, this.sizes.height);
     this.instance.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     this.instance.setClearColor(0xeeeeee, 1);
   }
 
   resize() {
-    this.renderer.instance.setSize(this.width, this.height);
-    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    this.instance.setSize(this.sizes.width, this.sizes.height);
+    this.instance.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   }
 }

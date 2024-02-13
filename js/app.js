@@ -18,7 +18,7 @@ export default class Sketch {
     this.sizes = new Sizes(this);
 
     // instance
-    this.renderer = new Renderer(null, this.sizes);
+    this.renderer = new Renderer(this);
     this.scene = new THREE.Scene();
     this.camera = new Camera(this);
     this.container.appendChild(this.renderer.instance.domElement);

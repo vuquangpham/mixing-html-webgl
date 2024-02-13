@@ -13,8 +13,10 @@ export default class Objects {
   }
 
   init() {
-    this.geometry = new THREE.BoxGeometry(1, 1, 1);
+    this.geometry = new THREE.PlaneGeometry(1, 1, 1, 1);
     this.material = new THREE.ShaderMaterial({
+      side: THREE.DoubleSide,
+
       vertexShader,
       fragmentShader,
 
