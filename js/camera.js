@@ -6,18 +6,28 @@ export default class Camera {
     this.experience = experience;
     this.sizes = this.experience.sizes;
 
+    // vars
+    this.distanceToScene = 600;
+
+    // set camera
     this.setCamera();
     this.setOrbitControls();
   }
 
   setCamera() {
-    this.instance = new THREE.PerspectiveCamera(
-      70,
-      this.sizes.width / this.sizes.height,
-      0.1,
-      100
+    // pythagorean theorem
+    const fovInRadian = Math.atan(
+      (this.sizes.height * 0.5) / this.distanceToScene
     );
-    this.instance.position.set(0, 0.5, 1);
+    const fovInDegree = (2 * (fovInRadian * 180)) / Math.PI;
+
+    this.instance = new THREE.PerspectiveCamera(
+      fovInDegree,
+      this.sizes.width / this.sizes.height,
+      1,
+      distanceToScene
+    );
+    this.instance.position.z = distanceToScene;
   }
 
   setOrbitControls() {
