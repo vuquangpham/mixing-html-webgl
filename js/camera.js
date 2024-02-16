@@ -7,7 +7,7 @@ export default class Camera {
     this.sizes = this.experience.sizes;
 
     // vars
-    this.distanceToScene = 600;
+    this.distanceToScene = 10;
 
     // set camera
     this.setCamera();
