@@ -25,7 +25,7 @@ export default class Camera {
       fovInDegree,
       this.sizes.width / this.sizes.height,
       1,
-      distanceToScene
+      this.distanceToScene
     );
     this.instance.position.z = distanceToScene;
   }
