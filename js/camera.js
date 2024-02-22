@@ -27,7 +27,7 @@ export default class Camera {
       1,
       this.distanceToScene
     );
-    this.instance.position.z = distanceToScene;
+    this.instance.position.z = this.distanceToScene;
   }
 
   setOrbitControls() {
