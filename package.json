@@ -4,15 +4,17 @@
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "parcel index.html",
-    "build": "parcel build index.html"
+    "dev": "vite --host --open",
+    "build": "vite build",
+    "preview": "vite preview --open",
+    "buildpreview": "vite build && vite preview --open"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@parcel/transformer-glsl": "^2.11.0",
-    "parcel": "^2.11.0"
+    "vite": "^5.1.5",
+    "vite-plugin-glsl": "^1.2.1"
   },
   "dependencies": {
     "lil-gui": "^0.19.1",
