@@ -6,7 +6,6 @@ export default class Renderer {
     this.sizes = this.experience.sizes;
     this.instance = new THREE.WebGLRenderer({
       antialias: true,
-      alpha: true,
     });
     this.instance.setSize(this.sizes.width, this.sizes.height);
     this.instance.setPixelRatio(Math.min(window.devicePixelRatio, 2));

@@ -7,7 +7,7 @@ export default class Camera {
     this.sizes = this.experience.sizes;
 
     // vars
-    this.distanceToScene = 10;
+    this.distanceToScene = 1;
 
     // set camera
     this.setCamera();
@@ -15,19 +15,29 @@ export default class Camera {
   }
 
   setCamera() {
+    // for complex scene with images -_-
     // pythagorean theorem
-    const fovInRadian = Math.atan(
-      (this.sizes.height * 0.5) / this.distanceToScene
-    );
-    const fovInDegree = (2 * (fovInRadian * 180)) / Math.PI;
+    // const fovInRadian = Math.atan(
+    //   (this.sizes.height * 0.5) / this.distanceToScene
+    // );
+    // const fovInDegree = (2 * (fovInRadian * 180)) / Math.PI;
 
+    // this.instance = new THREE.PerspectiveCamera(
+    //   fovInDegree,
+    //   this.sizes.width / this.sizes.height,
+    //   0.01,
+    //   this.distanceToScene
+    // );
+    // this.instance.position.z = this.distanceToScene;
+
+    // for simple project
     this.instance = new THREE.PerspectiveCamera(
-      fovInDegree,
+      75,
       this.sizes.width / this.sizes.height,
-      1,
-      this.distanceToScene
+      0.01,
+      100
     );
-    this.instance.position.z = this.distanceToScene;
+    this.instance.position.set(0, 1, 1);
   }
 
   setOrbitControls() {

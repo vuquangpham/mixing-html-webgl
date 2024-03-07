@@ -1,5 +1,4 @@
 import * as THREE from "three";
-
 import GUI from "lil-gui";
 
 import vertexShader from "./shaders/vertex.glsl";
